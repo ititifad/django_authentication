@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -20,7 +20,7 @@ class Category(models.Model):
 
 class Report(models.Model):
     title = models.CharField(max_length=120)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category)
     publish_date = models.DateTimeField()
     views = models.IntegerField(default=0)
